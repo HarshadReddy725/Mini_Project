@@ -1,0 +1,46 @@
+.navbar{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display:flex;
+    justify-content: space-between;
+    font-size: large;
+    position: relative;
+    height: 50px;
+    align-items: center;
+}
+
+.navan{
+    text-decoration: none;
+    color: black;
+}
+.navan:hover{
+    color: rgb(212, 184, 26);
+}
+
+#logo{
+    text-align: center;
+}
+#logoimg{
+    height: 150px;
+    width: fit-content;
+    margin-top: 200px;
+    border-radius: 25px;
+}
+
+.icons{
+    height: 20px;
+}
+#onlylogo{
+    height: 55px;
+}
+main{
+    height: 80vh;
+    background-image: url("C:\\Users\\harsh\\Downloads\\top-view-arrangement-with-food-wooden-background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#title{
+    margin-top: 68vh;
+    font-weight: 600;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
