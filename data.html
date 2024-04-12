@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: 60%;
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            color: #333;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        li:hover {
+            background-color: #f9f9f9;
+        }
+        .delete-btn {
+            background-color: #f44336;
+            color: white;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .due-date {
+            font-size: 14px;
+            color: #666;
+        }
+        .complete-btn {
+            background-color: #2196F3;
+            color: white;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .complete {
+            text-decoration: line-through;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <h1>Task Manager</h1>
+    <form id="taskForm">
+        <input type="text" id="taskInput" placeholder="Enter task...">
+        <input type="datetime-local" id="dueDateInput">
+        <input type="submit" value="Add Task">
+    </form>
+    <ul id="taskList">
+        <!-- Tasks will be dynamically added here -->
+    </ul>
+
+    <script>
+        document.getElementById("taskForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get input value
+            var taskInput = document.getElementById("taskInput");
+            var taskText = taskInput.value.trim();
+            var dueDateInput = document.getElementById("dueDateInput");
+            var dueDate = dueDateInput.value;
+
+            // Add task to list
+            if (taskText !== "") {
+                var taskList = document.getElementById("taskList");
+                var li = document.createElement("li");
+                li.innerHTML = `
+                    <span class="task-text">${taskText}</span>
+                    <span class="due-date">${dueDate ? 'Due: ' + formatDate(new Date(dueDate)) : ''}</span>
+                    <button class="complete-btn">Complete</button>
+                    <button class="delete-btn">Delete</button>`;
+                taskList.appendChild(li);
+
+                // Clear inputs
+                taskInput.value = "";
+                dueDateInput.value = "";
+
+                // Delete task
+                li.querySelector('.delete-btn').addEventListener('click', function() {
+                    li.remove();
+                });
+
+                // Complete task
+                li.querySelector('.complete-btn').addEventListener('click', function() {
+                    li.classList.toggle('complete');
+                });
+            }
+        });
+
+        function formatDate(date) {
+            var options = { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true };
+            return date.toLocaleDateString('en-US', options);
+        }
+    </script>
+</body>
+</html>
