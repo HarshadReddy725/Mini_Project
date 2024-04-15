@@ -1,7 +1,7 @@
 function OTP() {
 
-    document.getElementById("body").style.backgroundColor = "rgba(0,0,0,0.8)";
-    document.getElementById("loginbox").style.backgroundColor = "rgba(0,0,0,0.6)"
+    document.getElementById("main").style.backgroundColor = "rgba(0,0,0,0.8)";
+    document.getElementById("loginbox").style.backgroundColor = "rgba(0,0,0,0.6)";
     document.getElementById("otp").style.display = "block";
 
     let text = 30;

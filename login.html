@@ -5,19 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <script src="timer.js"></script>
+   
     <style>
-        #body{
+        .navbar{
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            display:flex;
+            justify-content: space-between;
+            font-size: large;
+            position: relative;
+            height: 50px;
+            align-items: center;
+            padding-right: 10px;
+        }
+        .icons{
+            height: 20px;
+        }
+        #onlylogo{
+            height: 50px;
+        }
+        .navan{
+            text-decoration: none;
+            color: black;
+        }
+        .navan:hover{
+            color: rgb(212, 184, 26);
+        }
+        body{
+            margin: 1px;
+        }
+
+        #main{
+            padding-top: 120px;
             background: url('backlogin.jpg');
             background-repeat: no-repeat;
             background-size:100% 100%;
-            height:74vh;
-            
+            height:76vh;
             background-blend-mode: darken ;
         }
         #loginbox{
-            
             opacity: 0.8;
-            margin-top: 180px;
+         
             background-color: burlywood;
             margin-left: auto;
             margin-right: auto;
@@ -37,7 +64,8 @@
         }
         #num{
             height: 25px;
-            width: 200px;
+            width: 150px;
+            border: 1px solid black;
             border-radius: 10px;
             background-color: #D9EDBF;
             border: 1px rgb(153, 105, 105) ;
@@ -59,7 +87,8 @@
             position:absolute;
             font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             margin-left: 34%;
-            top: 220px;
+            left:3px;
+            top: 270px;
             width: 400px;
             text-align: center;
             background-color: whitesmoke;
@@ -71,12 +100,37 @@
             background-color: blue;
             color: white;
             height: 25px;
-            width: 100px
+            width: 100px;
+            border: 1px solid black;
         }
-        
      </style>
 </head>
 <body id="body">
+    <div class="navbar">
+
+        <div style="display: flex; justify-content: space-between;">
+            <img id="onlylogo" src="Logo.png">
+            <p style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; margin-right: 1000px;">QuickEats</p>
+        </div>
+
+        <div id="login" style="display: flex; justify-content: space-between;"">
+            <img class="icons" src="loginlogo.png">
+            <a class="navan" href="login.html">Login</a>
+        </div>
+
+        <div style="display: flex; justify-content: space-between;">
+            <img class="icons" src="user.png">
+            <a class="navan" href="signup.html">Sign Up</a>
+        </div>
+
+       
+
+        <div style="display: flex; justify-content: space-between;">
+            <img class="icons" src="Cart.png">
+            <a class="navan" href="#">Cart</a>
+        </div>
+    </div>
+    <main id="main">
     <div id="loginbox">
         <table>
             <tr>
@@ -111,5 +165,6 @@
         <br>
         <pr>Not received? Resend OTP: </pr> <pr id="seconds""></pr>
     </div>
+    </main>
 </body>
 </html>
